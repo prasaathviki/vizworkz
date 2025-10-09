@@ -692,15 +692,31 @@ https://templatemo.com/tm-593-personal-shape
         }
 
         .about-image {
-            width: 511px;
-            height: 300px;
+            width: 100%;              /* Fill available grid space */
+            max-width: 511px;         /* Don't exceed original size */
+            height: auto;             /* Maintain aspect ratio */
+            aspect-ratio: 511 / 300;  /* Optional: keeps aspect ratio */
             background: url('vizplayerpro/images/start_page.png') center/cover;
             border-radius: 10px;
             position: relative;
             overflow: hidden;
+            justify-self: center;
             box-shadow: var(--shadow-2xl);
             transform: rotate(-2deg);
             transition: transform 0.4s ease;
+        }
+
+        @media (max-width: 768px) {
+            .about-image {
+                max-width: 350px;
+                aspect-ratio: 16 / 9; /* Optional: for a more standard mobile ratio */
+            }
+        }
+        @media (max-width: 480px) {
+            .about-image {
+                max-width: 100%;
+                aspect-ratio: 16 / 9;
+            }
         }
 
         .about-image:hover {
@@ -722,9 +738,6 @@ https://templatemo.com/tm-593-personal-shape
             opacity: 0.7;
         }
 
-        .about-image::after {
-
-        }
 
         .about-text h5 {
             font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
@@ -802,8 +815,10 @@ https://templatemo.com/tm-593-personal-shape
         }
 
         .portfolio-image {
-            width: 511px;
-            height: 300px;
+            width: 100%;           /* Fill the parent .portfolio-item */
+            max-width: 511px;      /* Optional: limit max size */
+            height: auto;          /* Maintain aspect ratio */
+            aspect-ratio: 511 / 300; /* Optional: keeps aspect ratio */
             background: var(--gradient-primary);
             position: relative;
             overflow: hidden;
@@ -820,11 +835,11 @@ https://templatemo.com/tm-593-personal-shape
         }
 
         .portfolio-item:nth-child(2) .portfolio-image {
-            background-image: url('vizplayerpro/images/actions.png');
+            background-image: url('vizplayerpro/images/videoeditingfeatures.png');
         }
 
         .portfolio-item:nth-child(3) .portfolio-image {
-            background-image: url('vizplayerpro/images/process_done.png');
+            background-image: url('vizplayerpro/images/actions.png');
         }
 
         .portfolio-item:nth-child(4) .portfolio-image {
